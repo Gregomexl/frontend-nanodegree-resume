@@ -213,7 +213,7 @@ work.display = function() {
 work.display();
 
 /*PROJECT SECTION*/
-var project = {
+var projects = {
 	"projects":[ 
 		{
 			"title" :  "Control Interno de Pagos",
