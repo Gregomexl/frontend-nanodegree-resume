@@ -149,7 +149,6 @@ $("#education").append(HTMLonlineClasses);
 education.display();
 
 /*WORK SECTION*/
-
 var work = {
 	"jobs":[ 
 		{
@@ -212,3 +211,66 @@ work.display = function() {
 }
 
 work.display();
+
+/*PROJECT SECTION*/
+var project = {
+	"projects":[ 
+		{
+			"title" :  "Control Interno de Pagos",
+			"dates" : "Oct 2015 - Feb 2016",
+			"description" : "A web application developed for the Colegio Iberoamericano Tampico, in this web app the administrator can add concepts, grades, students and invoices for payments for each students, export this in pdf.",
+			"images" : ["http://gregory.com.mx/assets/images/projects/project-featured3.png",]
+		},
+		{
+			"title" :  "Vmenu",
+			"dates" : "Sept 2015",
+			"decription" : "A web application developed for the guests of the Hotel Holiday Inn, in this web app the guests can order their room service, food or drinks.",
+			"images" : ["http://gregory.com.mx/assets/images/projects/project-featured1.png",]
+		},
+		{
+			"title" :  "Can educational systems help in motivating students?",
+			"dates" : "May 2015-Aug 2015",
+			"description" : "Develop and evaluate a mechanism that identifies motivational preferences of learners.",
+			"images" : ["http://gregory.com.mx/assets/images/projects/project-featured2.png",]
+		},
+		{
+			"title" :  "BeneApp",
+			"dates" : "Jan 2015-Nov 2015",
+			"description" : "A mobile application developed for the clients of the Hospital Beneficiencia Española.",
+			"images" : ["http://gregory.com.mx/assets/images/projects/project-featured.png",]
+		}]
+};
+
+projects.display = function() {
+    for (var project in projects.projects) {
+        $("#projects").append(HTMLprojectStart);
+
+        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+        $(".project-entry:last").append(formattedTitle);
+
+        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+        $(".project-entry:last").append(formattedDates);
+
+        var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+        $(".project-entry:last").append(formattedDescription);
+
+        if (projects.projects[project].images.length > 0) {
+            for (var image in projects.projects[project].images) {
+                var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+                $(".project-entry:last").append(formattedImage);
+            }
+        }
+    }
+};
+
+projects.display();
+
+$("#mapDiv").append(googleMap);
+
+
+$(document).click(function(loc) {
+    var x = loc.pageX;
+    var y = loc.pageY;
+
+    logClicks(x, y);
+});
