@@ -147,3 +147,68 @@ $("#education").append(HTMLonlineClasses);
 };
 
 education.display();
+
+/*WORK SECTION*/
+
+var work = {
+	"jobs":[ 
+		{
+			"employer" : "Cisco Systems",
+			"title" :  "Network Engineer (Trainee)",
+			"dates" : "Apr 2015 - Current",
+			"location" : "Mexico City, MX",
+			"description" : "Support in projects of the company and Cisco Certifications student.",
+		},
+		{
+			"employer" : "Athabasca University",
+			"title" :  "Web Developer",
+			"dates" : "May 2015 - Aug 2014",
+			"location" : "Edmonton, AB, CA",
+			"description" : "This job was a part of Mitacs Globalink Research Intership, a exchange program for students to have a experience in Canada, I worked in a team of two persons, for 4 months, Developing in Moodle as a platform using PHP, MySQL, AJAX.",
+		},
+		{
+			"employer" : "doIT Mexico",
+			"title" :  "Web Developer (Freelance)",
+			"dates" : "Oct 2015 - Feb 2016",
+			"location" : "Tampico, TMPS, MX",
+			"description" : "My job was Develop a system that have an admistrator page and the web client using the Framework Laravel 5.1 and Blade for Laravel and Bootstrap. All this alone.",
+		},
+		{
+			"employer" : "Beneficiencia Española Hospital",
+			"title" :  "Sotfware Developer",
+			"dates" : "Jan 2015 - Nov 2015",
+			"location" : "Tampico, TMPS, MX",
+			"description" : "My role in a team of 5 persons was the developing of a RESTful API using Laravel 5 and the mobile client in Swift (iOS), always using a strategy to provide a good resource for best coding practices.",
+		},
+		{
+			"employer" : "Soluciones EXA, S.A. de C.V.",
+			"title" :  "Network Engineer",
+			"dates" : "Jan 2014 - Jul 2014",
+			"location" : "Mexico City, MX",
+			"description" : "Support in the Wireless Networking area of the company with the technology of Xirrus.",
+		}]
+};
+
+
+work.display = function() {
+    for (var job in work.jobs) {
+        $("#workExperience").append(HTMLworkStart);
+
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+        
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
+        $(".work-entry:last").append(formattedEmployerTitle);
+
+        var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+        $(".work-entry:last").append(formattedDates);
+
+        var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+        $(".work-entry:last").append(formattedLocation);
+
+        var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+        $(".work-entry:last").append(formattedDescription);
+    }
+}
+
+work.display();
